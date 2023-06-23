@@ -8,7 +8,7 @@ const fileUpload = require("express-fileupload") //
 
 // MongoDB
 mongoose
-  .connect("mongodb+srv://teating64:k15DyZXGAxPRrgut@cluster0.lfneyfj.mongodb.net/job", {
+  .connect("mongodb+srv://teating64:qouHAkReJRJWVTKc@cluster0.lfneyfj.mongodb.net/job", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -44,6 +44,9 @@ app.use(express.json());
 app.use(passportConfig.initialize());
 
 // Routing
+app.get("/", (req, res) => {
+  return res.json({ ok: "ok" })
+})
 app.use("/auth", require("./routes/authRoutes"));
 app.use("/api", require("./routes/apiRoutes"));
 app.use("/upload", require("./routes/uploadRoutes"));
